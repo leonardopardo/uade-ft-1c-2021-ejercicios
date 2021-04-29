@@ -816,6 +816,37 @@ ___
 2. Justificad si la fuente puede codificarse con un código binario de 2 bits. En caso contrario, indicar cuál es el número mínimo de bits.
 3. Para el código binario resultante del punto b, calcular E y R. 
 
+
+**Solución**
+- Calcular las probabilidades faltantes
+- `P(A) + P(B) + P(C) + P(D) + P(E) + P(F) = 1`
+- `P(A) + P(B) + P(C) + P(D) + 2P(E) = 1`
+- `0.22 + 0.09 + 0.15 + 0.33 + 2P(E) = 1`
+- `0.79 + 2P(E) = 1`
+- `P(E) = (1 - 0.79) / 2`
+- `P(E) = 0.105` <= _resultado, entonces P(E) = P(F) = 0.105_
+
+![guia_4_ejercicio_10](https://github.com/leonardopardo/uade-ft-1c-2021-ejercicios/blob/main/src/guia_4_ejercicio_10.svg)
+
+1. Entropía y Longitud media
+
+|Símbolo|Pi   |Hi  |Código|Li|li  |
+|-------|-----|----|------|--|----|
+|A      |0.22 |0.48|11    |2 |0.44|
+|B      |0.09 |0.31|0000  |4 |0.36|
+|C      |0.15 |0.41|10    |2 |0.30|
+|D      |0.33 |0.53|01    |2 |0.66|
+|E      |0.105|0.34|0001  |4 |0.42|
+|F      |0.105|0.34|0010  |4 |0.42|
+|       |1    |2.41|------|--|2.60|
+
+2. No, la fuente no se puede codificar con 2 bits ya que la entropía > 2
+
+3. Eficiencia y Redundancia
+- E = H / l => `E = 2.41 / 2.6 = 0.927` => 92.7%
+- R = 1 - E => `R = 1 - 0.927 = 0.073` => 7.3%  
+
+
 ___
 
 ## Ejercicio 11
@@ -825,16 +856,6 @@ ___
 2. ¿Cuál es el significado del valor hallado en el punto anterior?
 3. Si los símbolos no fueran equiprobables ¿la entropía sería mayor o menor?
 
-___
-
-## Ejercicio 12
-
-- El proveedor de un novedoso sistema de compresión de archivos afirma que puede comprimir al 16% del tamaño original un texto extenso escrito en inglés sin perder información, es decir que se recupera -al descomprimir el archivo- exactamente el texto original; cada carácter del texto emplea 8 bit en el archivo original. Admitiendo que la entropía de la fuente que emite caracteres del inglés es de 1,6 bit por carácter, justificar -recurriendo al teorema pertinente- si esta pretensión es o no teóricamente posible. 
-___
-
-## Ejercicio 13
-
-- Calcular la capacidad de un canal binario simétrico (BSC) cuya probabilidad de error de bit es p = 0,1.
 ___
 
 # Digitalización de señales 
@@ -868,7 +889,6 @@ En la siguiente tabla, cada fila corresponde a un código de características di
 |--------------------|14      |--------|
 |--------------------|--------|3       |
 |--------------------|--------|4       |
-
 
 ___
  
