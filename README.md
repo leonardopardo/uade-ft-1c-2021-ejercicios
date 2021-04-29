@@ -877,18 +877,21 @@ En la siguiente tabla, cada fila corresponde a un código de características di
 
 ***Cantidad máxima de bits simultaneamente errados que puede:***
 
+- Detecta k-errores si la distancia Hamming k+1 => `d = k+1`
+- Corrige k-errores si la distancia Hamming 2k+1 => `d = 2k+1`
+
 |Distancia de Hamming|Detectar|Corregir|
 |--------------------|--------|--------|
-|1                   |--------|--------|
-|2                   |--------|--------|
-|3                   |--------|--------|
-|4                   |--------|--------|
-|5                   |--------|--------|
-|7                   |--------|--------|
-|10                  |--------|--------|
-|--------------------|14      |--------|
-|--------------------|--------|3       |
-|--------------------|--------|4       |
+|1                   |0       |0       |
+|2                   |1       |0       |
+|3                   |2       |1       |
+|4                   |3       |1       |
+|5                   |4       |2       |
+|7                   |6       |3       |
+|10                  |9       |4       |
+|15                  |14      |7       |
+|7                   |6       |3       |
+|9                   |8       |4       |
 
 ___
  
@@ -896,12 +899,18 @@ ___
 En cierto sistema de comunicaciones se desea obtener en el receptor los datos correctos sin necesidad de solicitar retransmisión, si el ruido no altera más de 3 bit de cada palabra. 
 
 1. Obtener la mínima distancia de Hamming de los códigos que cumplen con esta especificación. 
-2. Justificar si se podría o no cumplir con esta especificación mediante algún código de Hamming. 
+2. Justificar si se podría o no cumplir con esta especificación mediante algún código de Hamming.
+
+**Solución**
+1. Para corregir errores la distancia de Hamming no debe ser mayor a 2k+1 por lo tanto la distancia mínima será `d=2*3+1=7`
+2. Hamming permite detectar hasta 2 errores y corregir 1, por lo tanto no podría corregir 3 errores.
 ___
 
 ## Ejercicio 3
 Calcular cuántos bits de paridad tendrá el código de Hamming adecuado para 8 bits de datos. Calcular con cuántos bits de datos será necesario agregar otro bit de paridad.
- 
+
+**Solución**
+- **P1** | **P2** | _i3_ | **P4** | _i5_ | _i6_ | _i7_ | **P8** | _i9_ | _i10_ | _i11_ | _i12_  => ___respuesta 4 bits___
 ___
 
 ## Ejercicio 4
@@ -924,6 +933,49 @@ D= 1110
 2.	Si los símbolos tuvieran 7 bits ¿cuántos bits de paridad se necesitaría utilizar? 
 3.	¿Tiene sentido usar Hamming en un canal con baja intensidad y probabilidad de ruido, como la Fibra Optica? Justificar.
 
+
+**Solución**
+1. 
+
+|-    |001  |010  |011|100  |101|110|111|
+|--   |---  |---  |---|---  |---|---|---|
+|     |P1   |P2   |i3 |P4   |i5 |i6 |i7 |
+|-    |-    |-    |0  |-    |0  |1  |1  |
+|P1   |**1**|-    |0  |-    |0  |-  |1  |
+|P2   |-    |**0**|0  |-    |-  |1  |1  |
+|P4   |-    |     |-  |**0**|0  |1  |1  |
+|**A**|1    |0    |0  |0    |0  |1  |1  |
+_
+|-    |001  |010  |011|100  |101|110|111|
+|--   |---  |---  |---|---  |---|---|---|
+|     |P1   |P2   |i3 |P4   |i5 |i6 |i7 |
+|-    |-    |-    |0  |-    |1  |0  |1  |
+|P1   |**0**|-    |0  |-    |1  |-  |1  |
+|P2   |-    |**1**|0  |-    |-  |0  |1  |
+|P4   |-    |     |-  |**0**|1  |0  |1  |
+|**B**|0    |1    |0  |0    |1  |0  |1  |
+_
+|-    |001  |010  |011|100  |101|110|111|
+|--   |---  |---  |---|---  |---|---|---|
+|     |P1   |P2   |i3 |P4   |i5 |i6 |i7 |
+|-    |-    |-    |1  |-    |0  |1  |1  |
+|P1   |**0**|-    |1  |-    |0  |-  |1  |
+|P2   |-    |**1**|1  |-    |-  |1  |1  |
+|P4   |-    |     |-  |**0**|0  |1  |1  |
+|**C**|0    |1    |1  |0    |0  |1  |1  |
+_
+|-    |001  |010  |011|100  |101|110|111|
+|--   |---  |---  |---|---  |---|---|---|
+|     |P1   |P2   |i3 |P4   |i5 |i6 |i7 |
+|-    |-    |-    |1  |-    |1  |1  |0  |
+|P1   |**0**|-    |1  |-    |1  |-  |0  |
+|P2   |-    |**0**|1  |-    |-  |1  |0  |
+|P4   |-    |     |-  |**0**|1  |1  |0  |
+|**D**|0    |0    |1  |0    |1  |1  |0  |
+
+2. **P1** | **P2** | i3 | **P4** | i5 | i6 | i7 | **P8** | i9 | i10 | i11 => _para 7 bits así debería construirse la palabra de Hamming donde utilizaría 4 bits de paridad_
+
+3. No, no Hamming esta pensado para bajas velocidades para no tener que reenviar y dada la velocidad de la fibra óptica es preferible reenviar el código.
 ___
 
 ## Ejercicio 7
