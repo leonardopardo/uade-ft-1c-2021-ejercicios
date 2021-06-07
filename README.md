@@ -979,7 +979,7 @@ D= 1110
 
 2. **P1** | **P2** | i3 | **P4** | i5 | i6 | i7 | **P8** | i9 | i10 | i11 => _para 7 bits así debería construirse la palabra de Hamming donde utilizaría 4 bits de paridad_
 
-3. No, no Hamming esta pensado para bajas velocidades para no tener que reenviar y dada la velocidad de la fibra óptica es preferible reenviar el código.
+3. No, Hamming esta pensado para bajas velocidades para no tener que reenviar y dada la velocidad de la fibra óptica es preferible reenviar el código.
 ___
 
 ## Ejercicio 7
@@ -1006,3 +1006,89 @@ ___
 
 ## Ejercicio 10
 Un equipo receptor recibe el código 1011001101100 que fue codificado con CRC cuyo polinomio generador es X3 + X2 + 1. Determinar si se el código recibido es correcto o contiene errores.
+
+___
+
+# Medios Guiados
+
+## Ejercicio 6
+En un cable coaxial se transmite radiofrecuencia y se especifica que la atenuación es de 22 dB/km ¿Cuál es la atenuación que se produce en 100 m? 
+
+___
+
+## Ejercicio 7
+Cierto enlace de fibra óptica atenúa 42 dB en total. La atenuación característica de esta fibra es de 0,3 dB/km. 
+1. Calcular la longitud de este enlace (sin tomar margen de diseño). 
+
+___
+
+## Ejercicio 8
+Un transmisor de 100 W se conecta a un receptor mediante una línea de 9 km con atenuación de 0,5 dB / 100 m. Calcular la sensibilidad del receptor en mW, tomando un margen de diseño de 8 dB. 
+
+___
+
+## Ejercicio 9
+Determinar el ruido máximo – expresado en W - que puede afectar al siguiente sistema de comunicaciones:
+
+___
+
+## Ejercicio 10
+En un enlace de red full duplex la diafonía de tipo NEXT (near-end crosstalk) es de 43 dB. Si el cable atenúa 8 dB cada 100 metros, calcular su longitud máxima -sin tomar margen de diseño- para que la señal recibida esté como mínimo 11 dB por encima de la diafonía.
+
+___
+
+# Medios No Guiados
+
+## Ejercicio 1
+En la siguiente tabla, cada fila corresponde a una onda electromagnética diferente. Completar las celdas vacías, sin olvidar unidades con sus múltiplos o submúltiplos más adecuados.
+
+___
+
+## Ejercicio 2
+Calcular el tamaño típico (explicando el criterio empleado) de una antena para la frecuencia más alta de la banda de VHF. 
+
+___
+
+## Ejercicio 3
+Dada una antena parabólica cuyo dipolo tiene una longitud de 10mm, indicar cuáles son las 3 frecuencias que se recibirán con la menor pérdida.
+
+___
+
+## Ejercicio 4
+Calcular el tamaño típico del dipolo de una antena para recibir una señal cuya portadora es 10 GHz.
+
+___
+
+## Ejercicio 5
+En cierto enlace de microondas la antena transmisora se encuentra a 80 m de altura; calcular la altura mínima de la antena receptora para cubrir una distancia total de 70 km. 
+
+___
+
+## Ejercicio 6
+En cierto enlace de microondas ambas antenas se encuentran a 50 m de altura. Calcular la máxima distancia de separación entre ellas.
+
+___
+
+## Ejercicio 7
+Si se utiliza un satélite MEO ubicado a 25000 km para conectar a un datacenter en Chubut con una casa central sita en Buenos Aires ¿cuál será la demora que tendrá un bit en ir de ida y vuelta?
+
+___
+
+# Telefonía
+
+## Ejercicio 1
+Un sistema telefónico tiene 900 usuarios; cada uno de ellos deja pasar en promedio 3 horas entre llamada y llamada; la duración media de una llamada es de 2 minutos. 
+1. Calcular la intensidad de tráfico (carga) en Erlang. 
+2. Explicar qué otra característica del sistema se requiere para poder calcular la cantidad de troncales. 
+3. Graficar cualitativamente la relación entre las 3 características anteriores; dar nombre a los ejes y curvas, y señalar en qué sentido crece cada una de estas variables.
+ 
+___
+
+## Ejercicio 2
+Calcular la velocidad de transmisión del grupo básico en el sistema PCM 30 (europeo).
+ 
+___
+
+
+## Ejercicio 3
+Calcular la duración de cada bit en una trama T1 de PCM.
