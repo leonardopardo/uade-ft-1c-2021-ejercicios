@@ -1031,18 +1031,15 @@ Cierto enlace de fibra óptica atenúa 42 dB en total. La atenuación caracterí
 
 **Solución**  
 1. Atenuación total 42dB
-2. Atencuación característica es de 0'3 dB/km
+2. Atenuación característica es de 0'3 dB/km
 3. Plantear la x como la distancia total en kilómetros y despejarla.
 
-$$ 0'3 \frac{dB}{km} * x km = 42 dB $$
-$$ xkm = \frac{42dB}{0'3 \frac{dB}{km}} $$
-$$ xkm = \frac{42dB}{0'3dB} * km $$
-$$ xkm = \frac{42}{0'3} * km $$
-$$ xkm = 140 km $$
+$$ 0'3 \frac{dB}{km} * x = 42 dB $$
+$$ x = \frac{42dB}{0'3 \frac{dB}{km}} $$
+$$ x = \frac{42dB}{0'3dB} km $$
+$$ x = \frac{42}{0'3} km $$
+$$ x = 140 km $$
 
-```latexmath 
-xkm = 140 km
-```
 ___
 
 ## Ejercicio 8
@@ -1066,7 +1063,7 @@ $$  \frac{0'5dB}{100m}*\frac{1000m}{1km}*9km = 45 dB$$
 
 - Planteo de la ecuación  
 
-$$ Pin[dB] - At [dB] - N [dB] = Sensibilidad[dB] + Margen de Diseño [dB] $$
+$$ Pin[dB] - At [dB] - N [dB] = Sensibilidad[dB] + MD [dB] $$
 
 _Entonces_
 
@@ -1118,7 +1115,7 @@ $$ 10^\frac{24dBm}{10} = x $$
 $$ x = 251'18 mW $$
 
 **Respuesta**
-El ruído máximo que puede afectar al sistema es de 251'18 mW
+El ruido máximo que puede afectar al sistema es de 251'18 mW
 ___
 
 ## Ejercicio 10
@@ -1150,6 +1147,11 @@ Calcular el tamaño típico (explicando el criterio empleado) de una antena para
 1. Calcular la longitud de onda λ
 2. Utilizar la relación de la longitud de onda y el tamaño de antena λ/2
 
+_Ecuación_
+
+$$ λ = \frac{C}{f} $$
+$$ λ [m]= \frac{3*10^8}{f} $$
+
 _Datos_  
 1. Frecuencia de la banda VHF = 300 MHz
 
@@ -1168,7 +1170,7 @@ Dada una antena parabólica cuyo dipolo tiene una longitud de 10mm, indicar cuá
 
 - `n`  potencias de 2
 
-$$ f = \frac{C*n}{λ} $$
+$$ f = n*\frac{C}{λ} $$
 
 - `λ\2 => 60 GHz` 
 - `λ\4 => 120 GHz`
