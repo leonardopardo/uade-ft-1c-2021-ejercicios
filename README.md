@@ -1014,27 +1014,110 @@ ___
 ## Ejercicio 6
 En un cable coaxial se transmite radiofrecuencia y se especifica que la atenuación es de 22 dB/km ¿Cuál es la atenuación que se produce en 100 m? 
 
+**Solución**  
+1. Llevar todo a unidades homogéneas
+2. Resolver proporcionalmente
+3. Aplicar factor de conversión km/metro y multiplicar por la distancia solicitada.
+4. Resolver
+
+
+$$ \frac{22dB}{1km} * \frac{1 km}{1000m}  * 100 m = 2'2 dB $$
+
 ___
 
 ## Ejercicio 7
 Cierto enlace de fibra óptica atenúa 42 dB en total. La atenuación característica de esta fibra es de 0,3 dB/km. 
 1. Calcular la longitud de este enlace (sin tomar margen de diseño). 
 
+**Solución**  
+1. Atenuación total 42dB
+2. Atencuación característica es de 0'3 dB/km
+3. Plantear la x como la distancia total en kilómetros y despejarla.
+
+$$ 0'3 \frac{dB}{km} * x km = 42 dB $$
+$$ xkm = \frac{42dB}{0'3 \frac{dB}{km}} $$
+$$ xkm = \frac{42dB}{0'3dB} * km $$
+$$ xkm = \frac{42}{0'3} * km $$
+$$ xkm = 140 km $$
 ___
 
 ## Ejercicio 8
 Un transmisor de 100 W se conecta a un receptor mediante una línea de 9 km con atenuación de 0,5 dB / 100 m. Calcular la sensibilidad del receptor en mW, tomando un margen de diseño de 8 dB. 
 
+
+**Solución**
+1. Llevar todo a unidades homogéneas
+2. Plantear ecuación y despejar la sensibilidad
+
+- Pasar 100 W a dB
+
+$$ dB = 10*log(\frac{100W}{1W}) $$
+$$ dB = 10*log(100) $$
+$$ dB = 10*2 $$
+$$ dB = 20 $$
+
+- Calcular atenuación (_se simplifica metro con metro y km con km quedando el resultado en dB_)
+
+$$  \frac{0'5dB}{100m}*\frac{1000m}{1km}*9km = 45 dB$$
+
+- Planteo de la ecuación  
+
+$$ Pin[dB] - At [dB] - N [dB] = Sensibilidad[dB] + Margen de Diseño [dB] $$
+
+_Entonces_
+
+$$ 20 - 45 - 0 = x + 8 $$
+$$ x = -33 dB$$
+
+Para pasar a mW planteo 1 dividio 1000 obtenido de forma practica por 30 dB y luego divido por 2 también de forma práctica.
+
+$$ \frac{1}{1000} * \frac{1}{2} = \frac{1}{2000} = 0'0005 $$
+
+**Respuesta**  
+La sensibilidad del receptor es de -33 dB o 0'0005 mW
 ___
 
 ## Ejercicio 9
 Determinar el ruido máximo – expresado en W - que puede afectar al siguiente sistema de comunicaciones:
 
+![guia_medios_guiados_ejercicio_09](https://github.com/leonardopardo/uade-ft-1c-2021-ejercicios/blob/main/src/guia_medios_guiados_ejercicio_09.svg)
+
+
+**Solución**
+1. Llevar todo a unidades homogéneas
+2. Plantear ecuación de sensibilidad y despejar la incognita
+3. Llevar resultados a unidades solicitadas
+
+_Datos_  
+1. Pin = 20mW
+2. N = 60 mW
+3. At = x
+4. S = -30 dBm
+
+- Paso de unidades
+1. 
+$$ dBm = 10 * log(\frac{20mW}{1mW}) = 13 dBm $$
+
+2.  
+$$ dBm = 10 * log(\frac{60mW}{1mW}) = 19 dBm $$
+
+- Planteo de la ecuación (_todas los valores están en dBm_)
+
+$$ 13 - At - 19 = -30 $$
+$$ At = 24 dBm $$
+
+- Llevar a unidades seleccionadas
+
+$$ 24dBm = 10 * log(\frac{xmW}{1mW}) $$
+$$ \frac{24dBm}{10} = log(x) $$
+$$ 10^\frac{24dBm}{10} = x $$
+$$ x = 251'18 mW $$
 ___
 
 ## Ejercicio 10
 En un enlace de red full duplex la diafonía de tipo NEXT (near-end crosstalk) es de 43 dB. Si el cable atenúa 8 dB cada 100 metros, calcular su longitud máxima -sin tomar margen de diseño- para que la señal recibida esté como mínimo 11 dB por encima de la diafonía.
 
+`NO HACER`  
 ___
 
 # Medios No Guiados
