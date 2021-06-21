@@ -1039,6 +1039,10 @@ $$ xkm = \frac{42dB}{0'3 \frac{dB}{km}} $$
 $$ xkm = \frac{42dB}{0'3dB} * km $$
 $$ xkm = \frac{42}{0'3} * km $$
 $$ xkm = 140 km $$
+
+```latexmath 
+xkm = 140 km
+```
 ___
 
 ## Ejercicio 8
@@ -1112,6 +1116,9 @@ $$ 24dBm = 10 * log(\frac{xmW}{1mW}) $$
 $$ \frac{24dBm}{10} = log(x) $$
 $$ 10^\frac{24dBm}{10} = x $$
 $$ x = 251'18 mW $$
+
+**Respuesta**
+El ruído máximo que puede afectar al sistema es de 251'18 mW
 ___
 
 ## Ejercicio 10
@@ -1123,37 +1130,119 @@ ___
 # Medios No Guiados
 
 ## Ejercicio 1
-En la siguiente tabla, cada fila corresponde a una onda electromagnética diferente. Completar las celdas vacías, sin olvidar unidades con sus múltiplos o submúltiplos más adecuados.
+En la siguiente tabla, cada fila corresponde a una onda electromagnética diferente. Completar las 
+celdas vacías, sin olvidar unidades con sus múltiplos o submúltiplos más adecuados.
+
+|frecuencia | λ medio no guiado | λ medio guiado |
+|-----------|-------------------|----------------|
+|2'4GHz     |**0'125 m**        |--              |
+|**150 MHz**|2 m                |--              |
+|**200 THz**|--                 |1500 nm         |
+|900 KHz    |--                 |**333 m**       |
+|850 MHz    |**0'352 m**        |--              |
 
 ___
 
 ## Ejercicio 2
 Calcular el tamaño típico (explicando el criterio empleado) de una antena para la frecuencia más alta de la banda de VHF. 
 
+**Solución**  
+1. Calcular la longitud de onda λ
+2. Utilizar la relación de la longitud de onda y el tamaño de antena λ/2
+
+_Datos_  
+1. Frecuencia de la banda VHF = 300 MHz
+
+$$ λ = \frac{3*10^8}{300*10^6}*\frac{m}{s}*s $$
+$$ λ = 1 m $$
+
+2. Tamaño de la antena `λ/2 => 0'5 m` 
 ___
 
 ## Ejercicio 3
 Dada una antena parabólica cuyo dipolo tiene una longitud de 10mm, indicar cuáles son las 3 frecuencias que se recibirán con la menor pérdida.
+
+**Solución**  
+1. λ = 0'01 m
+2. Las 3 frecuencias con menor perdida son λ\2, λ\4 y λ\8 respectivamente.
+
+- `n`  potencias de 2
+
+$$ f = \frac{C*n}{λ} $$
+
+- `λ\2 => 60 GHz` 
+- `λ\4 => 120 GHz`
+- `λ\8 => 240 GHz`
 
 ___
 
 ## Ejercicio 4
 Calcular el tamaño típico del dipolo de una antena para recibir una señal cuya portadora es 10 GHz.
 
+**Solución**
+1. Calcular la longitud de onda λ
+2. Aplicar la relación
+
+-  Longitud de onda λ  
+
+$$ λ = \frac{C}{f} $$
+$$ λ = \frac{3*10^8}{10*10^9} \frac{m}{s} \frac{s}{1} = 0'03m $$
+
+- Aplico la relación `λ/2 => el tamaño del dipolo de la antena es de 0'015m`
+
 ___
 
 ## Ejercicio 5
-En cierto enlace de microondas la antena transmisora se encuentra a 80 m de altura; calcular la altura mínima de la antena receptora para cubrir una distancia total de 70 km. 
+En cierto enlace de microondas la antena transmisora se encuentra a 80 m de altura; calcular la 
+altura mínima de la antena receptora para cubrir una distancia total de 70 km. 
+
+**Solución**
+1. Aplicar la formula correspondiente
+
+$$ D = 4'14 \sqrt{H1} $$
+
+- `D: Alcance de horizonte radioeléctrico [km]`
+- `H1: Altura de la antena [m]`
+
+- Calculo el alcance de la primera antena
+
+$$ D = 4'14 \sqrt{80} = 37 Km $$
+
+- Como se debe curbrir una distancia de 70m me faltaría cubrir una distancia `D = 70 - 37` siendo este último valor la distancia de alcance de la antena transmisora.
+
+$$ 33 = 4'14 \sqrt{H2} $$
+$$ (\frac{33}{4'14})^2  = (\sqrt{H2})^2$$
+$$ (\frac{33}{4'14})^2  = H2$$
+$$ H2 = 63'53m $$
+
+**Respuesta**
+La altura mínima de la segunda antena para cubrir una distancia de 70km es de _`63'53m`_
 
 ___
 
 ## Ejercicio 6
-En cierto enlace de microondas ambas antenas se encuentran a 50 m de altura. Calcular la máxima distancia de separación entre ellas.
+En cierto enlace de microondas ambas antenas se encuentran a 50 m de altura. Calcular la máxima 
+distancia de separación entre ellas.
+
+**Solución**
+
+$$ D = 4'14 \sqrt{H1} $$
+$$ D = 4'14 \sqrt{50} = 29'27 Km $$
+
+- Dado que la otra antena también se encuentra a 50 m de altura la máxima separación entre ellas estaría dada por 2 veces la distancia:
+
+$$ 2D => 2*29'27 = 58'54Km $$
 
 ___
 
 ## Ejercicio 7
-Si se utiliza un satélite MEO ubicado a 25000 km para conectar a un datacenter en Chubut con una casa central sita en Buenos Aires ¿cuál será la demora que tendrá un bit en ir de ida y vuelta?
+Si se utiliza un satélite MEO ubicado a 25000 km para conectar a un datacenter en Chubut con una 
+casa central sita en Buenos Aires ¿cuál será la demora que tendrá un bit en ir de ida y vuelta?
+
+**Solución**
+1. El bit deberá realizar el recorrido `Chubut-Satelite -> Satelite-Buenos Aires` de ida y `Buenos Aires - Satelite -> Satelite - Chubut` de vuelta, por lo tanto son 4 los tramos en los que se recorre esa distancia.
+
+$$ t = 4 * 25000 km \frac{1s}{3*10^5km} = 0'33s$$
 
 ___
 
@@ -1164,14 +1253,18 @@ Un sistema telefónico tiene 900 usuarios; cada uno de ellos deja pasar en prome
 1. Calcular la intensidad de tráfico (carga) en Erlang. 
 2. Explicar qué otra característica del sistema se requiere para poder calcular la cantidad de troncales. 
 3. Graficar cualitativamente la relación entre las 3 características anteriores; dar nombre a los ejes y curvas, y señalar en qué sentido crece cada una de estas variables.
- 
+
+`NO HACER`
 ___
 
 ## Ejercicio 2
 Calcular la velocidad de transmisión del grupo básico en el sistema PCM 30 (europeo).
  
+`NO HACER`
 ___
 
 
 ## Ejercicio 3
 Calcular la duración de cada bit en una trama T1 de PCM.
+
+`NO HACER`
