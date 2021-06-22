@@ -1130,6 +1130,20 @@ ___
 En la siguiente tabla, cada fila corresponde a una onda electromagnética diferente. Completar las 
 celdas vacías, sin olvidar unidades con sus múltiplos o submúltiplos más adecuados.
 
+_Ecuaciones_  
+
+$$ λ = \frac{C}{f} $$
+
+$$ f = \frac{C}{λ} $$
+
+_Valores de la Constante C_
+
+$$ C \frac{[m]}{[s]} = 3*10^8 $$
+
+$$ C \frac{[Km]}{[s]} = 3*10^5 $$
+
+_Tabla_  
+
 |frecuencia | λ medio no guiado | λ medio guiado |
 |-----------|-------------------|----------------|
 |2'4GHz     |**0'125 m**        |--              |
@@ -1138,6 +1152,26 @@ celdas vacías, sin olvidar unidades con sus múltiplos o submúltiplos más ade
 |900 KHz    |--                 |**333 m**       |
 |850 MHz    |**0'352 m**        |--              |
 
+
+1. Dato 2'4GHz
+
+$$ λ[m] = \frac{3*10^8}{2'4*10^9} = 0'125$$
+
+2. Dato 2m
+
+$$ f = \frac{3*10^8}{2} = 150000000 Hz => \frac{150000000 Hz}{10^6} = 150 MHz $$
+
+3. Dato 1500 nm
+
+$$ f = \frac{3*10^8}{1500*10^{-9}} = 2x10^{14} Hz => \frac{2x10^{14} Hz}{10^{12}} = 200 THz $$
+
+4. Dato 900 KHz
+
+$$ λ[m] = \frac{3*10^8}{900*10^3} = 333$$ 
+
+5. Dato 850 MHz
+
+$$ λ[m] = \frac{3*10^8}{850*10^6} = 0'352 $$ 
 ___
 
 ## Ejercicio 2
@@ -1210,7 +1244,7 @@ $$ D = 4'14 \sqrt{H1} $$
 
 $$ D = 4'14 \sqrt{80} = 37 Km $$
 
-- Como se debe curbrir una distancia de 70m me faltaría cubrir una distancia `D = 70 - 37` siendo este último valor la distancia de alcance de la antena transmisora.
+- Como se debe curbrir una distancia de 70 Km me faltaría cubrir una distancia `D = 70 - 37` siendo este último valor la distancia de alcance de la antena transmisora.
 
 $$ 33 = 4'14 \sqrt{H2} $$
 $$ (\frac{33}{4'14})^2  = (\sqrt{H2})^2$$
@@ -1242,31 +1276,65 @@ Si se utiliza un satélite MEO ubicado a 25000 km para conectar a un datacenter 
 casa central sita en Buenos Aires ¿cuál será la demora que tendrá un bit en ir de ida y vuelta?
 
 **Solución**
-1. El bit deberá realizar el recorrido `Chubut-Satelite -> Satelite-Buenos Aires` de ida y `Buenos Aires - Satelite -> Satelite - Chubut` de vuelta, por lo tanto son 4 los tramos en los que se recorre esa distancia.
+1. El bit deberá realizar el recorrido `Chubut-Satelite -> Satelite-Buenos Aires` de ida y `Buenos Aires - Satelite -> Satelite - Chubut` de vuelta, por lo tanto son 4 los tramos en los que se recorre la distancia al satélite.
 
-$$ t = 4 * 25000 km \frac{1s}{3*10^5km} = 0'33s$$
+$$ t = 4 * 25000 km *\frac{1s}{3*10^5km} = 0'33s$$
 
 ___
 
 # Telefonía
 
-## Ejercicio 1
-Un sistema telefónico tiene 900 usuarios; cada uno de ellos deja pasar en promedio 3 horas entre llamada y llamada; la duración media de una llamada es de 2 minutos. 
-1. Calcular la intensidad de tráfico (carga) en Erlang. 
-2. Explicar qué otra característica del sistema se requiere para poder calcular la cantidad de troncales. 
-3. Graficar cualitativamente la relación entre las 3 características anteriores; dar nombre a los ejes y curvas, y señalar en qué sentido crece cada una de estas variables.
 
-`NO HACER`
+> _Ecuación dada en clase_
+>
+> - _n_: cantidad de llamados en una hora.
+> - _t_: tiempo promedio de cada llamado.
+>
+> $$ x[erl] = \frac{1[erl]}{60 min} * n * t $$ 
+>
+> _Ecuación formal_
+> - _λ_: tasa de llamadas por unidad de tiempo
+> - _h_: duración media de una llamada
+> - _n_: cantidad de llamadas
+> - _t_: unidad de tiempo
+> - _A_: tráfico en Erlangs
+> 
+> $$ A = λh $$
+>
+> o
+>
+> $$ A[erl] = \frac{n}{t}*h$$
+>
+> siendo
+>
+> $$ λ = \frac{n}{t} $$
+## Ejercicio 1 - Clase
+Si en una mesa de ayuda recibimos luego de un upgrade de SW al menos 100 llamadas en el plazo de una hora en la primer hora de la mañana, distribuidas en forma aleatoria. Cuantos técnicos debos tener en la mesa de ayuda?, considerar que la llamada promedio es de 5 minutos, y no quiero mas del 2 % de bloqueo.
+
+**Solución**
+1. Identificar las variables
+2. Plantear la ecuación
+3. Obtener el valor en [erl]
+4. Consultar tabla
+
+$$ x[erl] = \frac{100}{60 min} * 5 min $$
+$$ x = 8'3 erl $$
+
+- con el valor obtenido consulto la tabla.
+
+> __Respuesta__: De acuerdo con la tabla, la cantidad de técnicos que se requieren para un valor 
+inferior al 2% de bloqueo es de 15 técnicos.
 ___
+## Ejercicio 2 - Clase
+Si el pueblo A tiene 200 usuarios de telefonía fija, que quieren llamar al pueblo B. 
+Cuantos canales debo tener en la troncal que une Ambos pueblos? considerar que la llamada promedio 
+es de 3 minutos, y no quiero mas del 2 % de bloqueo.
 
-## Ejercicio 2
-Calcular la velocidad de transmisión del grupo básico en el sistema PCM 30 (europeo).
- 
-`NO HACER`
+**Solución**
+
+$$ x[erl] = \frac{200}{60 min} * 3 min $$
+$$ x = 10 erl $$
+
+> __Respuesta__: De acuerdo con la tabla, la cantidad de canales que se requieren para un valor 
+inferior al 2% de bloqueo es de 17 canales.
 ___
-
-
-## Ejercicio 3
-Calcular la duración de cada bit en una trama T1 de PCM.
-
-`NO HACER`
